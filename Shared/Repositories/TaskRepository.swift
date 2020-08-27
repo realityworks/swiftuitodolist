@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
@@ -16,8 +17,11 @@ class TaskRepository: ObservableObject {
         loadData()
     }
     func loadData() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        
         db.collection("tasks")
             .order(by: "createdTime")
+            .whereField("userId", isEqualTo: userId)
             .addSnapshotListener { (snapshot, error) in
             if let snapshot = snapshot {
                 self.tasks = snapshot.documents.compactMap { document in
@@ -28,9 +32,20 @@ class TaskRepository: ObservableObject {
     }
     func add(task: Task) {
         do {
-            _ = try db.collection("tasks").addDocument(from: task)
+            var userIdTask = task
+            userIdTask.userId = Auth.auth().currentUser?.uid
+            try db.collection("tasks").addDocument(from: userIdTask)
         } catch {
             fatalError("Unable to encode task: \(error.localizedDescription)")
+        }
+    }
+    func updateTask(task: Task) {
+        if let taskID = task.id {
+            do {
+                try db.collection("tasks").document(taskID).setData(from: task)
+            } catch {
+                fatalError("Unable to encode task: \(error.localizedDescription)")
+            }
         }
     }
 }

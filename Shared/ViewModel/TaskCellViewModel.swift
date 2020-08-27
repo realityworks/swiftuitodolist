@@ -10,6 +10,7 @@ import Combine
 
 class TaskCellViewModel: ObservableObject, Identifiable {
     @Published var task: Task
+    @Published var taskRepository = TaskRepository()
     
     var id: String = ""
     
@@ -31,6 +32,14 @@ class TaskCellViewModel: ObservableObject, Identifiable {
                 task.id
             }
             .assign(to: \.id, on: self)
+            .store(in: &cancellables)
+        
+        $task
+            .dropFirst() // Not sure I understand why this is here
+            .debounce(for: 0.8, scheduler: RunLoop.main)
+            .sink { task in
+                self.taskRepository.updateTask(task: task)
+            }
             .store(in: &cancellables)
     }
 }

@@ -11,6 +11,7 @@ struct TaskListView: View {
     @ObservedObject var taskListVM = TaskListViewModel()
     
     @State var presentAddNewItem = false
+    @State var showSignInForm = false
     
     let tasks = testData
     
@@ -40,6 +41,9 @@ struct TaskListView: View {
                     
                 }
                 .padding()
+            }
+            .sheet(isPresented: $showSignInForm) {
+                SignInWithAppleView()
             }
             .navigationTitle("Tasks")
         }
