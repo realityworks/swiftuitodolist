@@ -17,6 +17,8 @@
 		1D830B0524F6D04700CDB641 /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D830B0324F6CF9800CDB641 /* TaskRepository.swift */; };
 		1D88D4E324F6C7BA00BE7F1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D88D4E224F6C7BA00BE7F1A /* GoogleService-Info.plist */; };
 		1D88D4E424F6C7BA00BE7F1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D88D4E224F6C7BA00BE7F1A /* GoogleService-Info.plist */; };
+		1D947E9924F91A00002B398E /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D947E9824F91A00002B398E /* SignInWithAppleCoordinator.swift */; };
+		1D947E9A24F91A00002B398E /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D947E9824F91A00002B398E /* SignInWithAppleCoordinator.swift */; };
 		1DBD310A24F81AFF00FB1ED1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1DBD310924F81AFF00FB1ED1 /* FirebaseFirestore */; };
 		1DBD310C24F81AFF00FB1ED1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1DBD310B24F81AFF00FB1ED1 /* FirebaseAnalytics */; };
 		1DBD310E24F81AFF00FB1ED1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1DBD310D24F81AFF00FB1ED1 /* FirebaseFirestoreSwift */; };
@@ -42,6 +44,8 @@
 		1D2177BF24F5862700F6E666 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		1D830B0324F6CF9800CDB641 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		1D88D4E224F6C7BA00BE7F1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D947E9824F91A00002B398E /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
+		1D947E9B24F92119002B398E /* TodoList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodoList.entitlements; sourceTree = "<group>"; };
 		1DBD311524F820BF00FB1ED1 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
 		1DBD311824F8215B00FB1ED1 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
 		1DE3C26C24F577D40075F2E9 /* TodoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListApp.swift; sourceTree = "<group>"; };
@@ -88,17 +92,26 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1D830B0224F6CF7E00CDB641 /* Repositories */ = {
+		1D830B0224F6CF7E00CDB641 /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				1D830B0324F6CF9800CDB641 /* TaskRepository.swift */,
 			);
-			path = Repositories;
+			path = Store;
+			sourceTree = "<group>";
+		};
+		1D947E9724F919D2002B398E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1D947E9824F91A00002B398E /* SignInWithAppleCoordinator.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		1DE3C26624F577D30075F2E9 = {
 			isa = PBXGroup;
 			children = (
+				1D947E9B24F92119002B398E /* TodoList.entitlements */,
 				1DE3C26B24F577D40075F2E9 /* Shared */,
 				1DE3C27524F577D50075F2E9 /* iOS */,
 				1DE3C27C24F577D50075F2E9 /* macOS */,
@@ -109,9 +122,10 @@
 		1DE3C26B24F577D40075F2E9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				1D830B0224F6CF7E00CDB641 /* Repositories */,
+				1D830B0224F6CF7E00CDB641 /* Store */,
 				1D2177BB24F5846D00F6E666 /* ViewModel */,
 				1DE3C29124F578E20075F2E9 /* View */,
+				1D947E9724F919D2002B398E /* Services */,
 				1DE3C29024F578DA0075F2E9 /* App */,
 				1DE3C28D24F578130075F2E9 /* Model */,
 				1DE3C26E24F577D50075F2E9 /* Assets.xcassets */,
@@ -283,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D947E9924F91A00002B398E /* SignInWithAppleCoordinator.swift in Sources */,
 				1DE3C28124F577D50075F2E9 /* TaskListView.swift in Sources */,
 				1DE3C28F24F5781C0075F2E9 /* Task.swift in Sources */,
 				1DE3C27F24F577D50075F2E9 /* TodoListApp.swift in Sources */,
@@ -302,6 +317,7 @@
 				1DBD311A24F8215B00FB1ED1 /* SignInWithAppleButton.swift in Sources */,
 				1D830B0524F6D04700CDB641 /* TaskRepository.swift in Sources */,
 				1D2177BA24F5819A00F6E666 /* TaskView.swift in Sources */,
+				1D947E9A24F91A00002B398E /* SignInWithAppleCoordinator.swift in Sources */,
 				1D2177BE24F5848200F6E666 /* TaskCellViewModel.swift in Sources */,
 				1D2177C124F5862700F6E666 /* TaskListViewModel.swift in Sources */,
 				1DE3C28224F577D50075F2E9 /* TaskListView.swift in Sources */,
@@ -429,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TodoList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4V6Q43SM3J;
 				ENABLE_PREVIEWS = YES;
@@ -451,6 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TodoList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4V6Q43SM3J;
 				ENABLE_PREVIEWS = YES;

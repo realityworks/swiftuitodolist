@@ -10,14 +10,17 @@ import AuthenticationServices
 
 struct SignInWithAppleView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+    @State var coordinator = SignInWithAppleCoordinator()
     var body: some View {
         VStack {
             Text("Please sign in here")
             SignInWithAppleButton()
                 .frame(width: 200, height: 45)
                 .onTapGesture{
-                    self.presentationMode.wrappedValue.dismiss()
+                    coordinator.startSignInWithAppleFlow {
+                        print ("Signed in with Apple!")
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 }
         }
         

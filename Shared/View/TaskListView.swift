@@ -45,6 +45,12 @@ struct TaskListView: View {
             .sheet(isPresented: $showSignInForm) {
                 SignInWithAppleView()
             }
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.showSignInForm.toggle()
+                }, label: {
+                    Image(systemName: "person.circle")
+                }))
             .navigationTitle("Tasks")
         }
         
