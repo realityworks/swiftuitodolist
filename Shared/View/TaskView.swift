@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TaskView: View {
     @ObservedObject var taskCellVM: TaskCellViewModel
-    
     var onCommit: (Task) -> (Void) = { _ in }
     var body: some View {
         HStack {
